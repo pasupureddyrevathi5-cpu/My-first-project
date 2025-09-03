@@ -1,25 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Song Suggester</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fef9f5;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #222;
+    }
+    #song {
+      font-size: 20px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #444;
+    }
+    button {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e55b4d;
+    }
+    input {
+      padding: 8px;
+      margin: 10px;
+      width: 60%;
+    }
+  </style>
 </head>
 <body>
-  <h1>🎵 Random Song Suggester 🎵</h1>
-  <p id="song">Click the button to get a song!</p>
 
-  <button onclick="newSong()">Get Song</button>
+  <h1>🎵 Random Song Suggester 🎵</h1>
+  <p id="song">Click below to get a song suggestion!</p>
+  
+  <button onclick="newSong()">Suggest Song</button>
+  
+  <h3>Add Your Favorite Song</h3>
+  <input type="text" id="customSong" placeholder="Song - Artist">
+  <button onclick="addSong()">Add</button>
 
   <script>
     let songs = [
-      "Hi Nanna - Gajuu Bomma",
-      "Viduokkade - Kall Musi Yochisthye",
-      "I - Nuvvunte Na Jathaga"
+      "Shape of You - Ed Sheeran",
+      "Blinding Lights - The Weeknd",
+      "Believer - Imagine Dragons",
+      "Someone Like You - Adele",
+      "Perfect - Ed Sheeran",
+      "Faded - Alan Walker"
     ];
 
     function newSong() {
       let randomIndex = Math.floor(Math.random() * songs.length);
-      document.getElementById("song").innerText = songs[randomIndex];
+      document.getElementById("song").innerText = "🎶 " + songs[randomIndex];
+    }
+
+    function addSong() {
+      let newS = document.getElementById("customSong").value.trim();
+      if(newS) {
+        songs.push(newS);
+        document.getElementById("customSong").value = "";
+        alert("✅ Song added successfully!");
+      }
     }
   </script>
+
 </body>
 </html>
