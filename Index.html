@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Song Suggester</title>
+</head>
+<body>
+  <h1>🎵 Random Song Suggester 🎵</h1>
+  <p id="song">Click the button to get a song!</p>
+
+  <button onclick="newSong()">Get Song</button>
+
+  <script>
+    let songs = [
+      "Hi Nanna - Gajuu Bomma",
+      "Viduokkade - Kall Musi Yochisthye",
+      "I - Nuvvunte Na Jathaga"
+    ];
+
+    function newSong() {
+      let randomIndex = Math.floor(Math.random() * songs.length);
+      document.getElementById("song").innerText = songs[randomIndex];
+    }
+  </script>
+</body>
+</html>
